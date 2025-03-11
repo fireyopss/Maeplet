@@ -4,12 +4,14 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
+import EnhancedLoginButton from './components/loginbutton';
 
 export default function Authenticated({
     header,
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
-    const user = usePage().props.auth.user;
+    const user = usePage().props.auth.user ?? {};
+    const isLoggedIn = usePage().props.auth.isLoggedIn ?? false;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -67,6 +69,13 @@ export default function Authenticated({
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                            
+                            
+                            {isLoggedIn == false && (
+                                <EnhancedLoginButton  />
+                            )}
+
+                            {isLoggedIn && (
                             <div className="relative ms-3">
                                 <Dropdown>
                                     <Dropdown.Trigger>
@@ -108,7 +117,9 @@ export default function Authenticated({
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
-                            </div>
+                            </div>)}
+
+
                         </div>
 
                         <div className="-me-2 flex items-center sm:hidden">

@@ -12,6 +12,7 @@ export type PageProps<
 > = T & {
     auth: {
         user: User;
+        isLoggedIn: boolean;
     };
     ziggy: Config & { location: string };
 };
