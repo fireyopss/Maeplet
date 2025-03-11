@@ -28,11 +28,41 @@ export default function Authenticated({
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                    href={route('welcome')}
+                                    active={route().current('welcome')}
                                 >
-                                    Dashboard
+                                    Plet Flows
                                 </NavLink>
+
+                                <NavLink
+                                    href={route('pricing')}
+                                    active={route().current('pricing')}
+                                >
+                                    Pricing
+                                </NavLink>
+
+                                <NavLink
+                                    href={route('pricing')}
+                                    active={route().current('pricing')}
+                                >
+                                    Docs
+                                </NavLink>
+
+                                <NavLink
+                                    href={route('pricing')}
+                                    active={route().current('pricing')}
+                                >
+                                    Scrolling Screenshot
+                                </NavLink>
+
+                                <NavLink
+                                    href={route('pricing')}
+                                    active={route().current('pricing')}
+                                >
+                                    Advanced Monitoring
+                                </NavLink>
+
+
                             </div>
                         </div>
 
