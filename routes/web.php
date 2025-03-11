@@ -18,6 +18,10 @@ Route::get('/pricing', function(){
     return Inertia::render('maeplet/pricing');
 })->name('pricing');
 
+Route::get('/demo', function(){
+    return Inertia::render('maeplet/demo');
+})->name('demo');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
