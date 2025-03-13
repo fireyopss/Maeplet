@@ -26,6 +26,24 @@ Route::get('/demo2', function(){
     return Inertia::render('maeplet/demo2');
 })->name('demo2');
 
+
+
+Route::get('/docs', function(){
+    return Inertia::render('maeplet/docs');
+})->name('docs');
+
+Route::get('/scrollingsh', function(){
+    return Inertia::render('maeplet/scrollingscreenshot');
+})->name('scrollingsh');
+
+
+
+Route::get('/monitor', function(){
+    return Inertia::render('maeplet/advancedMonitoring');
+})->name('monitor');
+
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

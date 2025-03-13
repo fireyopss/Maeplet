@@ -33,7 +33,7 @@ export default function Authenticated({
                                     href={route('welcome')}
                                     active={route().current('welcome')}
                                 >
-                                    Plet Flows
+                                    Home
                                 </NavLink>
 
                                 <NavLink
@@ -44,22 +44,22 @@ export default function Authenticated({
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('pricing')}
-                                    active={route().current('pricing')}
+                                    href={route('docs')}
+                                    active={route().current('docs')}
                                 >
                                     Docs
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('pricing')}
-                                    active={route().current('pricing')}
+                                    href={route('scrollingsh')}
+                                    active={route().current('scrollingsh')}
                                 >
                                     Scrolling Screenshot
                                 </NavLink>
 
                                 <NavLink
-                                    href={route('pricing')}
-                                    active={route().current('pricing')}
+                                    href={route('monitor')}
+                                    active={route().current('monitor')}
                                 >
                                     Advanced Monitoring
                                 </NavLink>
@@ -69,8 +69,8 @@ export default function Authenticated({
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
-                            
-                            
+
+
                             {isLoggedIn == false && (
                                 <EnhancedLoginButton  />
                             )}
@@ -103,6 +103,11 @@ export default function Authenticated({
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
+                                    <Dropdown.Link
+                                            href={route('dashboard')}
+                                        >
+                                            Dashboard
+                                        </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route('profile.edit')}
                                         >
