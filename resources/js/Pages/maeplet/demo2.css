@@ -1,0 +1,13 @@
+[data-flume-component="node"]{
+    background: #ffffff;
+  }
+
+
+  [data-flume-node-type="Text"] {
+    background: linear-gradient(to top, #4e2020 0%, #20204e 100%);
+    border: 1px solid rgba(255,255,255,.5);
+    color: #fff;
+  }
+  [data-flume-node-type="TEXT"] [data-flume-component="node-header"] {
+    background: none;
+  }

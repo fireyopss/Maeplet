@@ -2,6 +2,7 @@ import { FlumeConfig, Colors, Controls } from 'flume'
 
 const config = new FlumeConfig()
 config
+
   .addPortType({
     type: "string",
     name: "string",
@@ -98,5 +99,73 @@ config
       ports.string()
     ]
     })
+    .addNodeType({
+        type: "user",
+        label: "User",
+        description: "Outputs attributes of the current user",
+        initialWidth: 130,
+        outputs: ports => [
+          ports.string({
+            name: "firstName",
+            label: "First Name"
+          }),
+          ports.string({
+            name: "lastName",
+            label: "Last Name"
+          }),
+          ports.boolean({
+            name: "isLoggedIn",
+            label: "Is Logged-In"
+          }),
+          ports.boolean({
+            name: "isAdmin",
+            label: "Is Admin"
+          })
+        ]
+      }) .addNodeType({
+        type: "joinText",
+        label: "Join Text",
+        description: "Combines two strings of text into one string",
+        initialWidth: 160,
+        inputs: ports => [
+          ports.string({
+            name: "string1",
+            label: "First text"
+          }),
+          ports.string({
+            name: "string2",
+            label: "Second text"
+          })
+        ],
+        outputs: ports => [
+          ports.string({
+            name: "joinedText",
+            label: "Joined Text"
+          }),
+        ]
+      })
+      .addNodeType({
+        type: "flattenjsonarray",
+        label: "Flatten JSON Array",
+        description: "Flattens a JSON array into a single array",
+        initialWidth: 160,
+        inputs: ports => [
+          ports.string({
+            name: "jsonArray 1",
+            label: "JSON Array"
+          }),
+          ports.string({
+            name: "jsonArray 2",
+            label: "JSON Array"
+          })
+        ],
+        outputs: ports => [
+          ports.string({
+            name: "flattenedArray",
+            label: "Flattened Array"
+          }),
+        ]
+      })
+
 
 export default config
