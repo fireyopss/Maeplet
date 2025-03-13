@@ -1,26 +1,73 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import DashboardSideBar from './Sidebar';
+import MaepletLogo from './components/Logo';
+import DashboardNavItem from './components/DashboardNavItem';
+
+import {
+
+    FaMoneyBill,
+    FaHome,
+    FaInfo
+
+} from 'react-icons/fa';
+import { FcWorkflow } from 'react-icons/fc';
+import { TbDeviceHeartMonitor } from 'react-icons/tb';
+import { GiSecretBook } from 'react-icons/gi';
 
 export default function Dashboard() {
     return (
         <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Dashboard
-                </h2>
-            }
         >
             <Head title="Dashboard" />
+            <div className="h-screen bg-red-400 flex">
+    <div className="bg-black w-80 flex-shrink-0">
 
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">
-                            You're logged in!
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <MaepletLogo />
             </div>
+
+            <div>
+            <DashboardNavItem icon={<FaHome/>} href="/dashboard"  isActive={true}>
+                 Home
+            </DashboardNavItem>
+            </div>
+
+            <div>
+            <DashboardNavItem icon={<FaInfo/>}  href="/dashboard"  isActive={false}>
+                Introduction
+            </DashboardNavItem>
+            </div>
+
+            <div>
+            <DashboardNavItem icon={<FcWorkflow/>}  href="/dashboard"  isActive={false}>
+                Workflows
+            </DashboardNavItem>
+            </div>
+
+            <div>
+            <DashboardNavItem icon={<TbDeviceHeartMonitor/>}  href="/dashboard"  isActive={false}>
+                Monitor
+            </DashboardNavItem>
+            </div>
+
+            <div>
+            <DashboardNavItem icon={<GiSecretBook/>}  href="/dashboard"  isActive={false}>
+                Credentials
+            </DashboardNavItem>
+            </div>
+
+
+
+    </div>
+    <div className="flex-grow bg-white ">
+        Home
+    </div>
+
+
+
+</div>
+
         </AuthenticatedLayout>
     );
 }
