@@ -1,10 +1,17 @@
 import React from "react";
 
-const DashboardNavItem = ({ href, children, icon, isActive = false }) => {
+const DashboardNavItem = ({ children, icon, id, onClickNavItem, url, isActive = false }) => {
   return (
     <li>
       <a
-        href={href}
+      onClick={()=>{
+        onClickNavItem(id)
+
+
+        //update the url
+        window.history.pushState(null, '', `/dashboard/${url}`)
+
+      }}
         className={`flex items-center py-3 px-6 text-white rounded-lg transition-all duration-300
           ${isActive ? "bg-blue-600 shadow-lg" : "hover:bg-gray-800"}
           relative group`}
