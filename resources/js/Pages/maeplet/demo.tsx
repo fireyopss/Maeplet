@@ -67,9 +67,9 @@ const FlowDemo = () => {
             defaultEdgeOptions={defaultEdgeOptions}
 
         >
-          <Background />
-          <Controls />
+          {/* <Controls /> */}
           <MiniMap  nodeStrokeWidth={3} zoomable pannable />
+          <Background />
 
         </ReactFlow>
       </div>

@@ -22,6 +22,10 @@ Route::get('/demo', function(){
     return Inertia::render('maeplet/demo');
 })->name('demo');
 
+Route::get('/demo2', function(){
+    return Inertia::render('maeplet/demo2');
+})->name('demo2');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
