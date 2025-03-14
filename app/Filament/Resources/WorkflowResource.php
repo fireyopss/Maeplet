@@ -7,7 +7,9 @@ use App\Filament\Resources\WorkflowResource\RelationManagers;
 use App\Models\Project;
 use App\Models\Workflow;
 use Filament\Forms;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,6 +33,25 @@ class WorkflowResource extends Resource
                     ->options(
                         Project::all()->pluck('name', 'id')
                     ),
+                    TextInput::make('name')
+                    ->label('Name')
+                    ->required()
+                    ->placeholder('Enter the workflow name'),
+                    TextInput::make('description')
+                    ->label('Description')
+                    ->placeholder('Enter the workflow description'),
+
+                    Repeater::make('workflow_data')
+                    ->schema([
+                        TextInput::make('key')
+                            ->label('Key')
+                            ->required()
+                            ->placeholder('Enter the key'),
+                        TextInput::make('value')
+                            ->label('Value')
+                            ->required()
+                            ->placeholder('Enter the value'),
+                    ])
 
             ]);
     }

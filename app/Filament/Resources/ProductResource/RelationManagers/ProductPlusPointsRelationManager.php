@@ -22,7 +22,6 @@ class ProductPlusPointsRelationManager extends RelationManager
         return $form
             ->schema([
 
-
             TextInput::make('point')
                 ->label('Point')
                 ->required()
