@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialController;
+use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return Inertia::render('maeplet/welcome', [
@@ -78,6 +82,41 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/billing', function(){
             return Inertia::render('Dashboard');
         })->name('dashboard.billing');
+});
+
+
+
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+
+Route::get('/auth/google/callback', [SocialController::class, 'handleSocialLogin']);
+
+
+Route::get('/auth/discord/redirect', function () {
+    return Socialite::driver('discord')->redirect();
+});
+
+
+Route::get('/auth/discord/callback', [SocialController::class, 'handleSocialLogin']);
+
+Route::get('/auth/github/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+
+Route::get('/auth/github/callback', [SocialController::class, 'handleSocialLogin']);
+
+
+Route::get('/auth/microsoft/redirect', function () {
+    return Socialite::driver('microsoft')->redirect();
+});
+
+
+Route::get('/auth/microsoft/callback', function () {
+    $user = Socialite::driver('microsoft')->user();
+    dd($user);
 });
 
 Route::middleware('auth')->group(function () {
