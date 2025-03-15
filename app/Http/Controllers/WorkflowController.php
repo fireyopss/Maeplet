@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class WorkflowController extends Controller
 {
     public function createWorkflow(WorkflowCreatedRequest $request) {
+        dd($request->all());
         // Create a new workflow
         $wfid = Workflow::create(array_merge($request->validated(), ['user_id' => auth()->id()]));
 
