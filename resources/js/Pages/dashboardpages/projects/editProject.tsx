@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, router, useForm, usePage } from '@inertiajs/react';
+import { Head, router, useForm, usePage, } from '@inertiajs/react';
 import {
   BookOpen,
   ArrowRight,
@@ -16,8 +16,8 @@ import {
   ChevronUp
 } from "lucide-react";
 
-const CreateProject = () => {
-    const {  } = usePage().props;
+const EditProject = () => {
+    const { project } = usePage().props;
     const [showTips, setShowTips] = useState(false);
     const [createNewProject, setCreateNewProject] = useState(false);
     const [newProjectName, setNewProjectName] = useState('');
@@ -27,9 +27,9 @@ const CreateProject = () => {
 
  
 
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
-        description: ''
+    const { data, setData, put, processing, errors, reset } = useForm({
+        name: project.name,
+        description: project.description
     });
 
  
@@ -37,13 +37,8 @@ const CreateProject = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validate new project if that option is selected
-        if (createNewProject && newProjectName.trim() === '') {
-            setNewProjectError('Please enter a project name');
-            return;
-        }
 
-        post(route('projects.store'));
+        put(route('projects.update', project.id));
     };
 
     const toggleTips = () => {
@@ -52,14 +47,14 @@ const CreateProject = () => {
 
     return (
         <AuthenticatedLayout>
-            <Head title="Create Project" />
+            <Head title="Edit Project" />
 
             <div className="max-w-3xl mx-auto bg-gray-900 text-white p-8 rounded-lg shadow-lg mt-24">
                 <div className="flex items-center justify-center mb-8">
                     <div className="bg-blue-600 p-3 rounded-full mr-3">
                         <Component size={24} />
                     </div>
-                    <h2 className="text-2xl font-bold">Create Project</h2>
+                    <h2 className="text-2xl font-bold">Edit Project</h2>
                 </div>
 
                 {/* Pro Tips Toggle Button */}
@@ -147,8 +142,8 @@ const CreateProject = () => {
                     <div className="pt-4 border-t border-gray-700 flex justify-end">
                         <button
                             type="button"
-                            onClick={() => {
-                                router.get('/dashboard/projects');
+                            onClick={() =>{
+                                router.get('/dashboard/projects')
                             }}
                             className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors mr-3"
                         >
@@ -159,7 +154,7 @@ const CreateProject = () => {
                             disabled={processing}
                             className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-all disabled:opacity-50 flex items-center"
                         >
-                            {processing ? 'Saving...' : 'Save Project'}
+                            {processing ? 'Saving...' : 'Update Project'}
                             {!processing && <ArrowRight size={16} className="ml-1" />}
                         </button>
                     </div>
@@ -169,4 +164,4 @@ const CreateProject = () => {
     );
 };
 
-export default CreateProject;
+export default EditProject;

@@ -22,7 +22,11 @@ const ProjectItem = ({ project }) => {
 
                 Workflows
                 {project.workflows.map((workflow:any) => (
-                    <div key={workflow.id} className="bg-gray-800 text-white rounded-lg p-2 mt-2">
+                    <div onClick={()=>{
+
+                        router.get(`/dashboard/workflow/editor/${workflow.id}`)
+
+                    }}  key={workflow.id} className="bg-gray-800 hover:bg-gray-700 cursor-pointer text-white rounded-lg p-2 mt-2">
                         <p className="text-sm font-semibold">{workflow.name}</p>
                         <p className="text-xs">{workflow.description}</p>
                     </div>
@@ -49,6 +53,8 @@ const ProjectItem = ({ project }) => {
 
                     onTap={()=>{
                         // router.get(`/dashboard/workflow/${project.id}`)
+
+                        router.get(`/dashboard/projects/edit/${project.id}`)
                     }}
                 >
                     <FaEdit className="text-lg" />

@@ -3,8 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\CreateController as ProjectCreateController;
 use App\Http\Controllers\Project\DeleteController as ProjectDeleteController;
+use App\Http\Controllers\Project\EditControllerIndex;
 use App\Http\Controllers\Project\EditorController;
 use App\Http\Controllers\Project\IndexController as ProjectIndexController;
+use App\Http\Controllers\Project\UpdateController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\Workflow\CreateController;
 use App\Http\Controllers\Workflow\DeleteController;
@@ -96,6 +98,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/projects/create',function(){
             return Inertia::render('dashboardpages/projects/createProject');
         })->name('projects.create');
+
+
+        Route::get('/dashboard/projects/edit/{project}',EditControllerIndex::class)->name('projects.edit');
+
+        Route::put('/dashboard/projects/edit/{project}',UpdateController::class)->name('projects.update');
 
         Route::delete('/dashboard/projects/{project}', ProjectDeleteController::class)->name('projects.delete');
 
