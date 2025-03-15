@@ -98,6 +98,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/billing', function(){
             return Inertia::render('Dashboard');
         })->name('dashboard.billing');
+
+        Route::get('/dashboard/projects', function(){
+            return Inertia::render('Dashboard');
+        })->name('dashboard.projects');
 });
 
 

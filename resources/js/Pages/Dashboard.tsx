@@ -18,6 +18,7 @@ import { act, useEffect, useState } from 'react';
 import DashboardHome from './dashboardpages/home';
 import DashboardBilling from './dashboardpages/billing';
 import DashboardWorkflows from './dashboardpages/workflows';
+import DashboardProjects from './dashboardpages/projects';
 
 export default function Dashboard() {
 
@@ -44,6 +45,9 @@ export default function Dashboard() {
                 break;
             case '/dashboard/billing':
                 setActive('dashboard.billing')
+                break;
+            case '/dashboard/projects':
+                setActive('dashboard.projects')
                 break;
         }
     },[])
@@ -88,6 +92,12 @@ export default function Dashboard() {
             </div>
 
             <div>
+            <DashboardNavItem url={"projects"} icon={<FcWorkflow/>} id={"dashboard.projects"} onClickNavItem={handleNavItemClick}    isActive={active === "dashboard.projects"}>
+                Projects
+            </DashboardNavItem>
+            </div>
+
+            <div>
             <DashboardNavItem url={"monitor"} icon={<TbDeviceHeartMonitor/>} id={"dashboard.monitor"} onClickNavItem={handleNavItemClick}    isActive={active === "dashboard.monitor"}>
                 Monitor
             </DashboardNavItem>
@@ -115,6 +125,7 @@ export default function Dashboard() {
         {active === "dashboard.monitor" && ( <div>Monitor</div>)}
         {active === "dashboard.credentials" && ( <div>Credentials</div>)}
         {active === "dashboard.billing" && ( <DashboardBilling />)}
+        {active === "dashboard.projects" && ( <DashboardProjects />)}
     </div>
 
 
