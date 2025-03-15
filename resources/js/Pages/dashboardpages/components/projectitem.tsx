@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTrash, FaEdit, FaPlay, FaProjectDiagram } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { router } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 
 const ProjectItem = ({ project }) => {
     return (
@@ -27,6 +27,17 @@ const ProjectItem = ({ project }) => {
                         <p className="text-xs">{workflow.description}</p>
                     </div>
                 ))}
+
+                {project.workflows.length === 0 && (
+                    <div>
+                    <p className="text-gray-400 text-xs mt-1">No workflows found</p>
+
+                   <Link href="/dashboard/workflow/create"> <button className="bg-blue-600 p-1  mt-2 rounded-md text-white hover:bg-blue-500 transition">
+                        Create Workflow Now
+                    </button></Link>
+                    </div>
+
+                )}
 
             </div>
 
