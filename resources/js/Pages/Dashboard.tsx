@@ -19,6 +19,8 @@ import DashboardHome from './dashboardpages/home';
 import DashboardBilling from './dashboardpages/billing';
 import DashboardWorkflows from './dashboardpages/workflows';
 import DashboardProjects from './dashboardpages/projects';
+import DashboardMonitor from './dashboardpages/monitor';
+import DashboardCredentials from './dashboardpages/credentials';
 
 export default function Dashboard() {
 
@@ -90,7 +92,7 @@ export default function Dashboard() {
                 Projects
             </DashboardNavItem>
             </div>
-            
+
             <div>
             <DashboardNavItem url={"workflow"} icon={<FcWorkflow/>} id={"dashboard.workflow"} onClickNavItem={handleNavItemClick}   isActive={active === "dashboard.workflow"}>
                 Workflows
@@ -124,8 +126,8 @@ export default function Dashboard() {
         {active === "dashboard.home" && ( <DashboardHome />)}
         {active === "dashboard.intro" && ( <div>Introduction</div>)}
         {active === "dashboard.workflow" && ( <DashboardWorkflows />)}
-        {active === "dashboard.monitor" && ( <div>Monitor</div>)}
-        {active === "dashboard.credentials" && ( <div>Credentials</div>)}
+        {active === "dashboard.monitor" && ( <DashboardMonitor />)}
+        {active === "dashboard.credentials" && ( <DashboardCredentials />)}
         {active === "dashboard.billing" && ( <DashboardBilling />)}
         {active === "dashboard.projects" && ( <DashboardProjects />)}
     </div>
