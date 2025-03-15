@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\Workflow\CreateController;
 use App\Http\Controllers\WorkflowController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -82,7 +83,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ]);
         });
 
-        Route::post('/dashboard/workflow/create', [WorkflowController::class, 'createWorkflow'])->name('workflows.store');
+        // Route::post('/dashboard/workflow/create', [WorkflowController::class, 'createWorkflow'])->name('workflows.store');
+
+        Route::post('/dashboard/workflow/create', CreateController::class)->name('workflows.store');
+
 
 
         Route::get('/dashboard/credentials', function(){
