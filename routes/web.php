@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Project\CreateController as ProjectCreateController;
+use App\Http\Controllers\Project\DeleteController as ProjectDeleteController;
+use App\Http\Controllers\Project\IndexController as ProjectIndexController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\Workflow\CreateController;
 use App\Http\Controllers\Workflow\DeleteController;
@@ -85,10 +88,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ]);
         });
 
+
+        Route::get('/dashboard/projects/create',function(){
+            return Inertia::render('dashboardpages/projects/createProject');
+        })->name('projects.create');
+
+        Route::delete('/dashboard/projects/{project}', ProjectDeleteController::class)->name('projects.delete');
+
+
         // Route::post('/dashboard/workflow/create', [WorkflowController::class, 'createWorkflow'])->name('workflows.store');
 
         Route::post('/dashboard/workflow/create', CreateController::class)->name('workflows.store');
 
+        Route::post('/dashboard/projects/create', ProjectCreateController::class)->name('projects.store');
 
 
         Route::get('/dashboard/credentials', function(){
@@ -99,9 +111,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             return Inertia::render('Dashboard');
         })->name('dashboard.billing');
 
-        Route::get('/dashboard/projects', function(){
-            return Inertia::render('Dashboard');
-        })->name('dashboard.projects');
+        Route::get('/dashboard/projects', ProjectIndexController::class)->name('dashboard.projects');
 });
 
 

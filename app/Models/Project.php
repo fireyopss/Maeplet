@@ -13,4 +13,9 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeOwnedByUser($query)
+    {
+        return $query->where('user_id', auth()->id());
+    }
 }

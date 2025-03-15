@@ -86,16 +86,18 @@ export default function Dashboard() {
             </div>
 
             <div>
+            <DashboardNavItem url={"projects"} icon={<FcWorkflow/>} id={"dashboard.projects"} onClickNavItem={handleNavItemClick}    isActive={active === "dashboard.projects"}>
+                Projects
+            </DashboardNavItem>
+            </div>
+            
+            <div>
             <DashboardNavItem url={"workflow"} icon={<FcWorkflow/>} id={"dashboard.workflow"} onClickNavItem={handleNavItemClick}   isActive={active === "dashboard.workflow"}>
                 Workflows
             </DashboardNavItem>
             </div>
 
-            <div>
-            <DashboardNavItem url={"projects"} icon={<FcWorkflow/>} id={"dashboard.projects"} onClickNavItem={handleNavItemClick}    isActive={active === "dashboard.projects"}>
-                Projects
-            </DashboardNavItem>
-            </div>
+          
 
             <div>
             <DashboardNavItem url={"monitor"} icon={<TbDeviceHeartMonitor/>} id={"dashboard.monitor"} onClickNavItem={handleNavItemClick}    isActive={active === "dashboard.monitor"}>
