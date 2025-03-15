@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\CreateController as ProjectCreateController;
 use App\Http\Controllers\Project\DeleteController as ProjectDeleteController;
+use App\Http\Controllers\Project\EditorController;
 use App\Http\Controllers\Project\IndexController as ProjectIndexController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\Workflow\CreateController;
@@ -79,6 +80,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('dashboard.monitor');
 
         Route::get('/dashboard/workflow', IndexController::class)->name('dashboard.workflow');
+
+        Route::get('/dashboard/workflow/editor/{workflow}', EditorController::class)->name('workflows.editor');
+
 
         Route::delete('/dashboard/workflow/{workflow}', DeleteController::class)->name('workflows.delete');
 

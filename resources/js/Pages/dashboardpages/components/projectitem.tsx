@@ -19,6 +19,15 @@ const ProjectItem = ({ project }) => {
                 <h3 className="text-xl font-bold text-gray-100">{project.name}</h3>
                 <p className="text-gray-400 text-sm">{project.description}</p>
                 <p className="text-gray-500 text-xs mt-1">Created: {new Date(project.created_at).toLocaleString()}</p>
+
+                Workflows
+                {project.workflows.map((workflow:any) => (
+                    <div key={workflow.id} className="bg-gray-800 text-white rounded-lg p-2 mt-2">
+                        <p className="text-sm font-semibold">{workflow.name}</p>
+                        <p className="text-xs">{workflow.description}</p>
+                    </div>
+                ))}
+
             </div>
 
             <div className="flex gap-3 items-center">
@@ -26,6 +35,10 @@ const ProjectItem = ({ project }) => {
                 <motion.button 
                     className="bg-blue-600 p-3 rounded-full text-white hover:bg-blue-500 transition"
                     whileHover={{ scale: 1.1 }} // Only scale on hover
+
+                    onTap={()=>{
+                        // router.get(`/dashboard/workflow/${project.id}`)
+                    }}
                 >
                     <FaEdit className="text-lg" />
                 </motion.button>

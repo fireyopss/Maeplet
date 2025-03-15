@@ -33,6 +33,11 @@ const WorkflowItem = ({ workflow }) => {
                 <motion.button 
                     className="bg-blue-600 p-3 rounded-full text-white hover:bg-blue-500 transition"
                     whileHover={{ scale: 1.1 }} // Only scale on hover
+
+                    onTap={()=>{
+                        router.get(`/dashboard/workflow/editor/${workflow.id}`)
+                        
+                    }}
                 >
                     <FaEdit className="text-lg" />
                 </motion.button>
