@@ -26,6 +26,7 @@
         "vite": "^6.0.11"
     },
     "dependencies": {
+        "@inertiaui/modal-react": "file:vendor/inertiaui/modal/react",
         "@xyflow/react": "^12.4.4",
         "flume": "^1.0.4",
         "lucide-react": "^0.479.0",

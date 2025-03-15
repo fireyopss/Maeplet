@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\WorkflowController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +75,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/workflow', function(){
             return Inertia::render('Dashboard');
         })->name('dashboard.workflow');
+
+        Route::get('/dashboard/workflow/create',function(){
+            return Inertia::render('dashboardpages/workflows/createWorkflow',[
+                'projects' => User::find(Auth::id())->projects
+            ]);
+        });
+
+        Route::post('/dashboard/workflow/create', [WorkflowController::class, 'createWorkflow'])->name('workflows.store');
+
 
         Route::get('/dashboard/credentials', function(){
             return Inertia::render('Dashboard');

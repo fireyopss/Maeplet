@@ -17,6 +17,7 @@ import { GiSecretBook } from 'react-icons/gi';
 import { act, useEffect, useState } from 'react';
 import DashboardHome from './dashboardpages/home';
 import DashboardBilling from './dashboardpages/billing';
+import DashboardWorkflows from './dashboardpages/workflows';
 
 export default function Dashboard() {
 
@@ -108,7 +109,7 @@ export default function Dashboard() {
     <div className="flex-grow bg-white p-4 ">
         {active === "dashboard.home" && ( <DashboardHome />)}
         {active === "dashboard.intro" && ( <div>Introduction</div>)}
-        {active === "dashboard.workflow" && ( <div>Workflows</div>)}
+        {active === "dashboard.workflow" && ( <DashboardWorkflows />)}
         {active === "dashboard.monitor" && ( <div>Monitor</div>)}
         {active === "dashboard.credentials" && ( <div>Credentials</div>)}
         {active === "dashboard.billing" && ( <DashboardBilling />)}

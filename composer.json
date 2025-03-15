@@ -9,6 +9,7 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "inertiajs/inertia-laravel": "^2.0",
+        "inertiaui/modal": "^0.19.4",
         "laravel/breeze": "^2.3",
         "laravel/cashier": "^15.6",
         "laravel/framework": "^12.0",

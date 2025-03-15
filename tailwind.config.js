@@ -8,6 +8,8 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.tsx',
+        './node_modules/@inertiaui/modal-react/src/**/*.{js,jsx}',
+
     ],
 
     theme: {
