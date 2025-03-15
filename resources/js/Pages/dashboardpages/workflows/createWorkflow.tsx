@@ -16,18 +16,18 @@ import {
 } from "lucide-react";
 
 const CreateWorkflow = () => {
-    const { projects, flash } = usePage().props;
+    const { projects, success } = usePage().props;
     const [showTips, setShowTips] = useState(false);
     const [createNewProject, setCreateNewProject] = useState(false);
     const [newProjectName, setNewProjectName] = useState('');
     const [newProjectError, setNewProjectError] = useState('');
 
     useEffect(() => {
-       if (flash?.message) {
+       if (success?.message) {
          // Could add toast notification here
-         console.log(flash);
+         console.log(success);
        }
-    }, [flash]);
+    }, [success]);
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',

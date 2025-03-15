@@ -9,7 +9,7 @@ class CreateAction {
 
     public function execute(WorkflowDTO $dto): Workflow
     {
-        dd($dto->toArray());
+        return Workflow::create(array_merge($dto->toArray(), ['user_id' => auth()->id()]));
     }
 
 }
