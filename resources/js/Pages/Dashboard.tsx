@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import DashboardSideBar from './Sidebar';
 import MaepletLogo from './components/Logo';
 import DashboardNavItem from './components/DashboardNavItem';
@@ -49,9 +49,11 @@ export default function Dashboard() {
     },[])
 
     const handleNavItemClick = (id: string) => {
-        setActive(id)
+        // setActive(id)
 
         //fetch the url
+
+        router.visit(route(id));
 
 
     }

@@ -12,7 +12,7 @@ const DashboardNavItem = ({ children, icon, id, onClickNavItem, url, isActive = 
         window.history.pushState(null, '', `/dashboard/${url}`)
 
       }}
-        className={`flex items-center py-3 px-6 text-white rounded-lg transition-all duration-300
+        className={`flex cursor-pointer items-center py-3 px-6 text-white rounded-lg transition-all duration-300
           ${isActive ? "bg-blue-600 shadow-lg" : "hover:bg-gray-800"}
           relative group`}
       >

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\Workflow\CreateController;
+use App\Http\Controllers\Workflow\DeleteController;
+use App\Http\Controllers\Workflow\IndexController;
 use App\Http\Controllers\WorkflowController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -73,9 +75,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
         })->name('dashboard.monitor');
 
-        Route::get('/dashboard/workflow', function(){
-            return Inertia::render('Dashboard');
-        })->name('dashboard.workflow');
+        Route::get('/dashboard/workflow', IndexController::class)->name('dashboard.workflow');
+
+        Route::delete('/dashboard/workflow/{workflow}', DeleteController::class)->name('workflows.delete');
 
         Route::get('/dashboard/workflow/create',function(){
             return Inertia::render('dashboardpages/workflows/createWorkflow',[

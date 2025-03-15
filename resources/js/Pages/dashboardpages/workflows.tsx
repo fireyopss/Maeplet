@@ -1,7 +1,15 @@
-import React from "react";
-import { Link } from "@inertiajs/react";
+import React, { useEffect } from "react";
+import { Link, usePage } from "@inertiajs/react";
+import WorkflowItem from "./components/workflowItem";
 
 const DashboardWorkflows = () => {
+
+    const { workflows } = usePage().props;
+
+    useEffect(()=>{
+        console.log(workflows)
+    },[workflows])
+
     return (
         <div>
             <div className="h-24 bg-black flex items-center px-6 rounded-lg shadow-md">
@@ -17,6 +25,13 @@ const DashboardWorkflows = () => {
                     </button></Link>
                 </div>
             </div>
+
+            <div>
+                {workflows?.map((workflow:any) => (
+                   <WorkflowItem key={workflow.id} workflow={workflow} />
+                ))}
+            </div>
+
         </div>
     );
 };

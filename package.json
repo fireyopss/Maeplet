@@ -29,6 +29,7 @@
         "@inertiaui/modal-react": "file:vendor/inertiaui/modal/react",
         "@xyflow/react": "^12.4.4",
         "flume": "^1.0.4",
+        "framer-motion": "^12.5.0",
         "lucide-react": "^0.479.0",
         "react-feather": "^2.0.10",
         "react-icons": "^5.5.0"
