@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Credentials\CreateControllerIndex;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\CreateController as ProjectCreateController;
 use App\Http\Controllers\Project\DeleteController as ProjectDeleteController;
@@ -117,6 +118,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/credentials', function(){
             return Inertia::render('Dashboard');
         })->name('dashboard.credentials');
+
+
+        Route::get('/dashboard/credentials/create',CreateControllerIndex::class)->name('dashboard.credentials.create');
+
 
         Route::get('/dashboard/billing', function(){
             return Inertia::render('Dashboard');
