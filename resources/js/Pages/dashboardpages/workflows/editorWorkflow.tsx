@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { usePage, Link } from "@inertiajs/react";
 import EditorButtons from "./editorbuttons";
+import { NodeEditor } from "flume";
+
+import Config from './config'
 
 const EditorWorkflow = () => {
     const { workflow } = usePage().props;
@@ -43,15 +46,20 @@ const EditorWorkflow = () => {
                     
                     {/* Main Editor Area */}
                     <div className="flex-grow bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
-                        <h2 className="text-lg font-semibold text-green-500 mb-4">Workflow Canvas</h2>
-                        <p className="text-gray-400">Drag and drop elements to design your workflow.</p>
+
+                        <NodeEditor
+                            portTypes={Config.portTypes}
+                            nodeTypes={Config.nodeTypes}
+                           
+                        />
+
                     </div>
                     
                     {/* Right Sidebar */}
-                    <div className="bg-gray-900 w-80 p-6 rounded-lg shadow-lg border border-gray-800">
+                    {/* <div className="bg-gray-900 w-80 p-6 rounded-lg shadow-lg border border-gray-800">
                         <h2 className="text-lg font-semibold text-green-500 mb-4">Workflow Details</h2>
                         <p className="text-gray-400">View and edit properties of the selected workflow item.</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
