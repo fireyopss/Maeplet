@@ -1,7 +1,9 @@
 <?php
 
+use App\Actions\Credentials\DeleteController as CredentialsDeleteController;
 use App\Http\Controllers\Credentials\CreateController as CredentialsCreateController;
 use App\Http\Controllers\Credentials\CreateControllerIndex;
+use App\Http\Controllers\Credentials\DeleteController as ControllersCredentialsDeleteController;
 use App\Http\Controllers\Credentials\IndexController as CredentialsIndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\CreateController as ProjectCreateController;
@@ -123,6 +125,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard/credentials/create',CreateControllerIndex::class)->name('dashboard.credentials.create');
 
         Route::post('/dashboard/credentials/create', CredentialsCreateController::class)->name('credentials.store');
+
+        
+        Route::delete('/dashboard/credentials/{credential}', ControllersCredentialsDeleteController::class)->name('credentials.delete');
+
 
 
         Route::get('/dashboard/billing', function(){
