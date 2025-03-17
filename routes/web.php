@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Credentials\CreateController as CredentialsCreateController;
 use App\Http\Controllers\Credentials\CreateControllerIndex;
+use App\Http\Controllers\Credentials\IndexController as CredentialsIndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Project\CreateController as ProjectCreateController;
 use App\Http\Controllers\Project\DeleteController as ProjectDeleteController;
@@ -115,12 +117,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/dashboard/projects/create', ProjectCreateController::class)->name('projects.store');
 
 
-        Route::get('/dashboard/credentials', function(){
-            return Inertia::render('Dashboard');
-        })->name('dashboard.credentials');
+        Route::get('/dashboard/credentials', CredentialsIndexController::class)->name('dashboard.credentials');
 
 
         Route::get('/dashboard/credentials/create',CreateControllerIndex::class)->name('dashboard.credentials.create');
+
+        Route::post('/dashboard/credentials/create', CredentialsCreateController::class)->name('credentials.store');
 
 
         Route::get('/dashboard/billing', function(){

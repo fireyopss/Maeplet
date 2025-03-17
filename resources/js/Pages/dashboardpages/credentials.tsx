@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import { Link } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
+import CredentialItem from './components/credentialitem'
 
 
 const DashboardCredentials = () => {
+
+        const {credentials} = usePage().props
+
+        useEffect(()=>{
+            console.log(credentials)
+        },[credentials])
+
     return (
         <div>
            
@@ -15,10 +23,17 @@ const DashboardCredentials = () => {
                     </p>
                 </div>
                 <div className="w-96 flex justify-end">
-                   <Link href="/dashboard/projects/create"> <button className="rounded-md bg-green-500 text-white px-6 py-3 text-sm font-medium transition hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 shadow-md">
+                   <Link href="/dashboard/credentials/create"> <button className="rounded-md bg-green-500 text-white px-6 py-3 text-sm font-medium transition hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 shadow-md">
                         Create Credential
                     </button></Link>
                 </div>
+            </div>
+
+
+            <div>
+                {credentials?.map((credential:any) => (
+                   <CredentialItem key={credential.id} credential={credential} />
+                ))}
             </div>
 
 
