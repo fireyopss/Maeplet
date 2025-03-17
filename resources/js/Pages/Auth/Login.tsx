@@ -5,7 +5,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
-import { FaGoogle, FaGithub, FaDiscord } from 'react-icons/fa';
+import { FaGoogle, FaGithub, FaDiscord, FaLinkedin } from 'react-icons/fa';
 
 import BackgroundImage from './background.jpg'
 
@@ -46,12 +46,18 @@ export default function Login({
                         <a href="/auth/google/redirect" className="flex items-center justify-center w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
                             <FaGoogle className="mr-2" /> Sign in with Google
                         </a>
+                      
+                        <a href="/auth/linkedin/redirect" className="flex items-center justify-center w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
+                            <FaLinkedin className="mr-2" /> Sign in with Linkedin
+                        </a>
+
                         <a href="/auth/github/redirect" className="flex items-center justify-center w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
                             <FaGithub className="mr-2" /> Sign in with GitHub
                         </a>
                         <a href="/auth/discord/redirect" className="flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
                             <FaDiscord className="mr-2" /> Sign in with Discord
                         </a>
+                      
                     </div>
 
                     <div className="flex items-center w-full text-gray-500 mt-4">

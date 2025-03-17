@@ -168,10 +168,16 @@ Route::get('/auth/microsoft/redirect', function () {
 });
 
 
-Route::get('/auth/microsoft/callback', function () {
-    $user = Socialite::driver('microsoft')->user();
-    dd($user);
+Route::get('/auth/microsoft/callback', [SocialController::class, 'handleSocialLogin']);
+
+
+Route::get('/auth/linkedin/redirect', function () {
+    return Socialite::driver('linkedin')->redirect();
 });
+
+Route::get('/auth/linkedin/callback', [SocialController::class, 'handleSocialLogin']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -29,7 +29,7 @@ const CredentialItem = ({ credential }) => {
 
             <div className="flex gap-3 items-center">
            
-                <motion.button 
+                {/* <motion.button 
                     className="bg-blue-600 p-3 rounded-full text-white hover:bg-blue-500 transition"
                     whileHover={{ scale: 1.1 }} // Only scale on hover
 
@@ -39,7 +39,7 @@ const CredentialItem = ({ credential }) => {
                     }}
                 >
                     <FaEdit className="text-lg" />
-                </motion.button>
+                </motion.button> */}
                 
                 <motion.button 
                     className="bg-red-600 p-3 rounded-full text-white hover:bg-red-500 transition"
