@@ -178,6 +178,12 @@ Route::get('/auth/linkedin/redirect', function () {
 Route::get('/auth/linkedin/callback', [SocialController::class, 'handleSocialLogin']);
 
 
+Route::get('/auth/twitter/redirect', function () {
+    return Socialite::driver('twitter')->redirect();
+});
+
+Route::get('/auth/twitter/callback', [SocialController::class, 'handleSocialLogin']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

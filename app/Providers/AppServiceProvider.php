@@ -35,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
             $event->extendSocialite('linkedin', \SocialiteProviders\LinkedIn\Provider::class);
         });
         
+
+        Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
+            $event->extendSocialite('twitter', \SocialiteProviders\Twitter\Provider::class);
+        });
+        
     }
 }

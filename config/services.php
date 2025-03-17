@@ -63,4 +63,10 @@ return [
         "redirect" => env("LINKEDIN_REDIRECT_URI"),
     ],
 
+    'twitter' => [
+        'client_id' => env('X_CLIENT_ID'),
+        'client_secret' => env('X_CLIENT_SECRET'),
+        'redirect' => env('X_REDIRECT_URI'),
+    ]
+
 ];
